@@ -1,67 +1,20 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "AI Logic: Add original Grok/ChatGPT-vibe branding images and wire them into the UI",
+  "title": "Chat UI example prompt for positive/thank-you phrases",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Add original, minimal, high-contrast AI Logic branding images (logo mark, favicon, hero background) with a modern AI-assistant aesthetic while remaining clearly non-derivative.",
-      "acceptanceCriteria": [
-        "New images are generated as specified in imageRequirements.required",
-        "The visuals feel consistent with a modern AI-chat brand (minimal, premium, subtle gradients) while remaining clearly original (not a copy of Grok/ChatGPT marks)"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/ai-logic-logo.dim_512x512.png",
-          "operation": "create",
-          "description": "Add the generated original AI Logic logo mark image (minimal abstract mark, subtle gradient on dark background). Ensure it is clearly original and not a copy/trace of any protected Grok AI or ChatGPT logo/wordmark."
-        },
-        {
-          "path": "frontend/public/assets/generated/ai-logic-favicon.dim_32x32.png",
-          "operation": "create",
-          "description": "Add the generated original AI Logic favicon image (simplified monochrome/duotone mark). Ensure it is clearly original and not a copy/trace of any protected Grok AI or ChatGPT logo/wordmark."
-        },
-        {
-          "path": "frontend/public/assets/generated/ai-logic-hero.dim_1600x400.png",
-          "operation": "create",
-          "description": "Add the generated original wide hero/header background image (soft gradient + light noise texture, no text). Ensure it is clearly original and not a copy/trace of any protected Grok AI or ChatGPT assets."
-        }
-      ]
-    },
-    {
       "id": "REQ-2",
-      "summary": "Wire the generated branding images into the app UI as static assets: replace the header bot icon with the new logo mark and set the favicon in the HTML head.",
+      "summary": "Add a positive/thank-you phrase to the welcome-state example prompt buttons so users can easily try the new recognition behavior.",
       "acceptanceCriteria": [
-        "Generated files exist under frontend/public/assets/generated with the exact filenames from imageRequirements.required",
-        "The header in frontend/src/App.tsx displays the new logo image instead of the lucide Bot icon (layout remains aligned and sized appropriately)",
-        "frontend/index.html includes a favicon <link> referencing the generated favicon file",
-        "No backend changes are required for image rendering"
+        "The welcome-state example prompt buttons include a new prompt that uses a positive/thank-you phrase.",
+        "Clicking the new example prompt button fills the input field with that phrase, consistent with existing example prompt behavior."
       ],
       "file_operations": [
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Replace the current header lucide Bot icon with an <img> rendering the static asset at frontend/public/assets/generated/ai-logic-logo.dim_512x512.png, keeping sizing/alignment consistent with the existing header layout. Optionally incorporate frontend/public/assets/generated/ai-logic-hero.dim_1600x400.png as a subtle decorative background for the existing header area without adding new routes or backend involvement."
-        },
-        {
-          "path": "frontend/index.html",
-          "operation": "modify",
-          "description": "Add/update favicon metadata in the <head> to reference the static asset at frontend/public/assets/generated/ai-logic-favicon.dim_32x32.png (served from the public directory). Ensure no backend routing is introduced for image delivery."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Keep branding updates aligned with existing Tailwind theme tokens and avoid introducing a new blue/purple-dominant global palette.",
-      "acceptanceCriteria": [
-        "UI continues using existing CSS variables / Tailwind tokens for colors",
-        "No new global theme changes that shift the app into a blue/purple-dominant look"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Ensure any styling changes made for the new logo/hero usage rely on existing Tailwind classes and theme tokens (e.g., bg-background, bg-card, border-border) and do not introduce new global color definitions or a blue/purple-dominant aesthetic. Avoid edits to immutable hook paths and avoid adding new global theme configuration."
+          "description": "Update the `examplePrompts` list to include at least one new positive/thank-you example (e.g., \"Thanks\" or \"Great job\") so it renders as an additional welcome-state prompt button. Ensure it continues to use the existing click handler that fills the input. Uses existing shadcn-ui Button rendering already present in this file; verify the component's usage instructions before implementing."
         }
       ]
     }

@@ -1,90 +1,55 @@
 {
   "kind": "build_request",
-  "title": "Add AI Logic branding images inspired by Grok AI and ChatGPT style",
+  "title": "Recognize positive and thank-you words in chat responses",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Generate original branding images for AI Logic with a modern minimal AI-assistant aesthetic similar in vibe to Grok AI and ChatGPT (clean, high-contrast, subtle gradients), without copying or tracing any protected logos or exact assets.",
-      "target": "unknown",
+      "text": "Update the Motoko backend `answerQuestion(question : Text)` handler to recognize common positive/thank-you words and return an appropriate friendly response when they appear in the user input (e.g., \"nice\", \"good\", \"excellent\", \"great\", \"thanks\", and similar variants). Matching must be case-insensitive and work when the word appears alone or inside a longer sentence.",
+      "target": "backend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "the image must be like grok ai and chat gpt"
+          "it needs to understand words like  nice , good ,excellent, great , thanks e.t.c"
         ]
       },
       "acceptanceCriteria": [
-        "New images are generated as specified in imageRequirements.required",
-        "The visuals feel consistent with a modern AI-chat brand (minimal, premium, subtle gradients) while remaining clearly original (not a copy of Grok/ChatGPT marks)"
+        "When the user submits exactly \"thanks\" (any casing, e.g., \"Thanks\", \"THANKS\"), the canister returns a friendly acknowledgment (e.g., \"You're welcome!\" or \"Glad I could help!\").",
+        "When the user submits a longer message containing one of the positive/thank-you words (e.g., \"That was excellent, thanks\"), the canister matches it and returns the same acknowledgment response.",
+        "When the user submits punctuation-adjacent forms (e.g., \"thanks!\", \"great.\"), the canister still matches and responds.",
+        "Existing topic-specific responses (cost, privacy, ICP, science, etc.) continue to work as before."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Add the generated branding images as static assets under frontend/public/assets/generated and render them in the UI: replace the current header bot icon with the generated AI Logic logo mark, and use the favicon image in the HTML head.",
+      "text": "Add at least one example prompt in the chat UI to demonstrate the new positive/thank-you word recognition (e.g., add \"Thanks\" or \"Great job\" to the example prompt list).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "the image must be like grok ai and chat gpt"
+          "it needs to understand words like  nice , good ,excellent, great , thanks e.t.c"
         ]
       },
       "acceptanceCriteria": [
-        "Generated files exist under frontend/public/assets/generated with the exact filenames from imageRequirements.required",
-        "The header in frontend/src/App.tsx displays the new logo image instead of the lucide Bot icon (layout remains aligned and sized appropriately)",
-        "frontend/index.html includes a favicon <link> referencing the generated favicon file",
-        "No backend changes are required for image rendering"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Ensure the updated branding visuals remain consistent with the existing Tailwind theme tokens and do not introduce a new blue/purple-dominant palette.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "the image must be like grok ai and chat gpt"
-        ]
-      },
-      "acceptanceCriteria": [
-        "UI continues using existing CSS variables / Tailwind tokens for colors",
-        "No new global theme changes that shift the app into a blue/purple-dominant look"
+        "The welcome-state example prompt buttons include a new prompt that uses a positive/thank-you phrase.",
+        "Clicking the new example prompt button fills the input field with that phrase, consistent with existing example prompt behavior."
       ]
     }
   ],
   "constraints": [
-    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui",
-    "Do not add any backend endpoints or route image delivery through the backend; images must be served as static frontend assets",
-    "Do not copy, trace, or recreate Grok AI or ChatGPT logos/wordmarks; only create original visuals with a similar general aesthetic"
+    "Backend must remain a single Motoko actor in `backend/main.mo` (no additional backend services).",
+    "Do not edit any frontend files under `frontend/src/components/ui` or any other paths listed as immutable in SYSTEM_CONTEXT."
   ],
   "nonGoals": [
-    "Implementing new chat features (memory, streaming, multi-chat, real-time)",
-    "Changing backend answer logic or adding new backend storage",
-    "Adding third-party authentication beyond existing Internet Identity setup"
+    "Implementing full sentiment analysis, ML/NLP, or scoring; only keyword/phrase recognition is required.",
+    "Adding third-party integrations or external APIs for language understanding."
   ],
   "imageRequirements": {
-    "required": [
-      "Minimal abstract AI logo mark with subtle gradient on dark background (ai-logic-logo.dim_512x512.png)",
-      "Simplified monochrome/duotone favicon version of the logo mark (ai-logic-favicon.dim_32x32.png)",
-      "Wide minimal header/hero background with soft gradient and light noise texture, no text (ai-logic-hero.dim_1600x400.png)"
-    ],
+    "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [
-      "Branding images should have a visual vibe similar to Grok AI and ChatGPT (modern, minimal, premium), while remaining original."
-    ],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

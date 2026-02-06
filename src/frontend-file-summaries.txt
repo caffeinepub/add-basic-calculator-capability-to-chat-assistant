@@ -1,5 +1,5 @@
 {
-  "frontend/src/App.tsx": "Main chat application component with message history, user input form, example prompts, and AppLinkSection; now displays the AI Logic logo image in the header with the hero image as a subtle background, replacing the previous Bot icon.",
+  "frontend/src/App.tsx": "Main chat application component with message history, user input form, example prompts (now including \"Thanks!\" to demonstrate positive phrase recognition), and AppLinkSection; displays the AI Logic logo image in the header with the hero image as a subtle background.",
   "frontend/src/hooks/useQueries.ts": "React Query mutation hook that wraps the backend answerQuestion call with proper error handling and loading states.",
   "frontend/src/index.css": "Global styles with a warm amber/orange OKLCH color palette for both light and dark modes, avoiding blue/purple tones.",
   "frontend/tailwind.config.js": "Tailwind configuration extended with Inter font family and custom design tokens matching the warm color scheme.",

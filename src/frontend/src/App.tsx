@@ -81,6 +81,7 @@ function App() {
     "Where are your answers from?",
     "What is photosynthesis?",
     "What is the Pythagorean theorem?",
+    "Thanks!",
   ];
 
   return (

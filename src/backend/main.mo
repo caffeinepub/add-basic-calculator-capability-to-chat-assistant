@@ -3,12 +3,28 @@ import Array "mo:core/Array";
 import Iter "mo:core/Iter";
 
 actor {
+  // Function to check for positive/thanks patterns in a question.
+  func containsThanksPatterns(question : Text) : Bool {
+    let patterns = [
+      "thank you", "thanks", "thx",
+      "nice", "good", "excellent", "great", "awesome", "fantastic", "amazing", "wonderful",
+      "superb", "brilliant", "love this", "appreciate", "helpful", "cool", "well done"
+    ];
+
+    patterns.any(func(pattern) { question.contains(#text pattern) });
+  };
+
   public query ({ caller }) func answerQuestion(question : Text) : async Text {
     if (question.trim(#char ' ').isEmpty()) {
       return "You must ask a question for me to answer.";
     };
 
     let lowerQuestion = question.toLower().trim(#char ' ');
+
+    if (containsThanksPatterns(lowerQuestion)) {
+      return "You are very welcome! I always try to be helpful. If you have any suggestions how to improve me, feel free to share them. Have a great day!";
+    };
+
     if (lowerQuestion.contains(#text "creat")) {
       return "adoniyas";
     };
