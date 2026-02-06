@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal abstract AI logo mark with subtle gradient on dark background (ai-logic-logo.dim_512x512.png)\n- Simplified monochrome/duotone favicon version of the logo mark (ai-logic-favicon.dim_32x32.png)\n- Wide minimal header/hero background with soft gradient and light noise texture, no text (ai-logic-hero.dim_1600x400.png)",
+  "existing_features": [
+    {
+      "id": "feature-generate-original-branding-images-for-ai-logic-with-a-modern-minimal-ai-assistant-aesthetic-similar-in-vibe-to-grok-ai-and-chatgpt-clean-high-contrast-subtle-gradients-without-copying-or-tracing-any-protected-logos-or-exact-assets",
+      "title": "Generate original branding images for AI Logic with a modern minimal AI-assistant aesthetic similar in vibe to Grok AI and ChatGPT (clean, high-contrast, subtle gradients), without copying or tracing any protected logos or exact assets.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-generated-branding-images-as-static-assets-under-frontend-public-assets-generated-and-render-them-in-the-ui-replace-the-current-header-bot-icon-with-the-generated-ai-logic-logo-mark-and-use-the-favicon-image-in-the-html-head",
+      "title": "Add the generated branding images as static assets under frontend/public/assets/generated and render them in the UI: replace the current header bot icon with the generated AI Logic logo mark, and use the favicon image in the HTML head.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-updated-branding-visuals-remain-consistent-with-the-existing-tailwind-theme-tokens-and-do-not-introduce-a-new-blue-purple-dominant-palette",
+      "title": "Ensure the updated branding visuals remain consistent with the existing Tailwind theme tokens and do not introduce a new blue/purple-dominant palette.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create an image (branding/visual) in a style similar to Grok AI and ChatGPT",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Add AI Logic branding images inspired by Grok AI and ChatGPT style",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

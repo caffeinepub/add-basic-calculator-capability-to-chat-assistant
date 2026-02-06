@@ -1,2 +1,3 @@
-# add-basic-calculator-capability-to-chat-assistant
-Exported from Caffeine project: Add AI Logic branding images inspired by Grok AI and ChatGPT style
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

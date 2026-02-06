@@ -1,0 +1,11 @@
+{
+  "frontend/src/App.tsx": "Main chat application component with message history, user input form, example prompts, and AppLinkSection; now displays the AI Logic logo image in the header with the hero image as a subtle background, replacing the previous Bot icon.",
+  "frontend/src/hooks/useQueries.ts": "React Query mutation hook that wraps the backend answerQuestion call with proper error handling and loading states.",
+  "frontend/src/index.css": "Global styles with a warm amber/orange OKLCH color palette for both light and dark modes, avoiding blue/purple tones.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Inter font family and custom design tokens matching the warm color scheme.",
+  "frontend/src/components/AppLinkSection.tsx": "Component that displays the app's deployment URL with a copy-to-clipboard button and success confirmation, or shows a message when no URL is configured.",
+  "frontend/src/lib/deployConfig.ts": "Configuration module that reads the deployment URL from VITE_DEPLOYMENT_URL environment variable with safe fallback handling.",
+  "frontend/src/lib/domainValidation.ts": "Client-side utilities for normalizing and validating domain/subdomain strings against the 5-50 character rule with only letters, numbers, and hyphens allowed.",
+  "frontend/.env.example": "Example environment file documenting the VITE_DEPLOYMENT_URL variable for local configuration.",
+  "frontend/index.html": "HTML entry point with updated page title reflecting the \"AI Logic\" branding and favicon link pointing to the generated AI Logic favicon image."
+}
